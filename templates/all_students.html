@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3> All Students </h3>
+<hr>
+<div>
+    <div style="display: flex; justify-content: space-between; font-weight: bold;">
+        <div style="flex-basis: 30%;">Student image</div>
+        <div style="flex-basis: 90%;">Student Details</div>
+        
+    </div>
+    {% for student in students %}
+        <div style="display: flex; align-items: center;">
+            <div style="flex-basis: 30%;">
+                <img src="{{ student[3] }}" alt="{{ student[3] }} Image" width="150" height="150">
+            </div>
+            <div style="flex-basis: 90%;">
+                <div><h4><a href="{{ url_for('students')}}/{{student[0]}}">{{ student[1] }}</a></h4></div>
+                <div>{{ student[2] }}</div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

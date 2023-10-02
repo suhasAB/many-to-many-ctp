@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+        <div>
+            <h4>Student Org Student Profile</h4>
+            <hr>
+            <h3> {{ student[1] }}</h3>
+            <p> {{ student[2] }}</p>
+            <img src="{{ student[3] }}" alt="{{ student[1] }} Image" width="300" height="300">
+        </div>
+    <hr>
+   
+    <div>
+            <h4> Club joined by {{student[1]}}</h4>
+            <div>
+                <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                    <div style="flex-basis: 40%;">Club image</div>
+                    <div style="flex-basis: 60%;">Club Details</div>
+                   
+                </div>
+                {% for club in clubs_in_student %}
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex-basis: 40%;margin-right: 20px;">
+                            <img src="{{ club[3] }}" alt="{{ club[3] }} Image" width="320" height="190">
+                        </div>
+                        <div style="flex-basis: 60%;">
+                            <div><h4><a href="{{url_for('clubs')}}/{{club[0]}}">{{ club[1] }}</a></h4></div>
+                            <div>{{ club[2] }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+{% endblock %}

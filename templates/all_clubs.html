@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .cell {
+        padding: 1%;
+    }
+</style>
+
+<h3> All Clubs </h3>
+<hr>
+<div>
+    <div style="display: flex; justify-content: space-between; font-weight: bold;">
+        <div style="flex-basis: 40%;">Club image</div>
+        <div style="flex-basis: 60%;">Club Details</div>
+        
+    </div>
+    {% for club in clubs %}
+        <div class="cell" style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center;">
+                <div style="flex-basis: 40%; margin-right: 20px;">
+                    <img src="{{ club[3] }}" alt="{{ club[3] }} Image" style="max-width: 100%; height: auto;">
+                </div>
+                <div style="flex-basis: 60%;">
+                    <div><h4><a href="{{ url_for('clubs')}}/{{club[0]}} " >{{ club[1] }}</a></h4></div>
+                    <div>{{ club[2] }}</div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
