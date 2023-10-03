@@ -23,8 +23,11 @@ with conn.cursor() as cur:
 
 @app.route('/')
 def index():
-  
-    return render_template('index.html')
+    stud="/api/students/903543153702338561"
+    club="/api/clubs/903543188415905793"
+    url=url_for('index')
+
+    return render_template('index.html', stud=stud, club=club,url=url)
 
 #create a route to view individual student profile page along with the clubs they are in. sample id=903543188415905793
 @app.route('/students/<id>')
